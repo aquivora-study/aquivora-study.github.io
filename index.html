@@ -1,81 +1,488 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#6366f1">
-  <meta name="description" content="Aquivora is a smart study platform for notes, quizzes, flashcards, subjects and focused study sessions.">
-  <meta name="robots" content="index,follow">
-  <title>Aquivora — Your Smart Study Space</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Aquivora is a smart study platform with notes, quizzes, flashcards and study tools for students."
+  >
+
+  <title>Aquivora — Learn Smarter. Go Further.</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="app">
-  <aside class="sidebar" id="sidebar">
-    <div class="brand"><div class="logo">A</div><div><b>Aquivora</b><small>Smart study space</small></div></div>
-    <nav>
-      <button class="nav active" data-page="dashboard">⌂ <span>Dashboard</span></button>
-      <button class="nav" data-page="subjects">▦ <span>Subjects</span></button>
-      <button class="nav" data-page="notes">▤ <span>Notes</span></button>
-      <button class="nav" data-page="quiz">? <span>Quiz</span></button>
-      <button class="nav" data-page="flashcards">◇ <span>Flashcards</span></button>
-      <button class="nav" data-page="timer">◷ <span>Study Timer</span></button>
-    </nav>
-    <div class="streakbox">🔥 <b>Study streak</b><small><span id="sideStreak">0</span> days — keep going!</small></div>
-    <button class="nav settings" data-page="settings">⚙ <span>Settings</span></button>
-  </aside>
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="index.html" class="logo">
+        Aquivora
+      </a>
+
+      <nav class="navigation">
+
+        <a href="#subjects">Subjects</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#tools">Study Tools</a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
 
   <main>
-    <header>
-      <button id="menu" class="icon">☰</button>
-      <div class="search">⌕ <input id="search" placeholder="Search subjects, notes, quizzes..."></div>
-      <button id="theme" class="icon">☾</button><button id="profile" class="avatar">A</button>
-    </header>
 
-    <div class="content">
-      <section class="page active" id="dashboard">
-        <div class="hero">
-          <div><label>YOUR STUDY DASHBOARD</label><h1>Learn smarter.<br><i>Go further.</i></h1>
-          <p>Organize subjects, practice with quizzes and build a study habit that lasts.</p>
-          <button class="primary" data-page="subjects">Explore subjects →</button>
-          <button class="secondary" data-page="timer">Start studying</button></div>
-          <div class="orb"><div class="core">A</div><span>📚 Notes</span><span>🧠 Quiz</span><span>⏱️ Focus</span></div>
+    <section class="hero">
+
+      <div class="container hero-content">
+
+        <p class="eyebrow">
+          YOUR SMART STUDY SPACE
+        </p>
+
+        <h1>
+          Learn smarter.<br>
+          Go further.
+        </h1>
+
+        <p class="hero-text">
+          Study notes, practice questions,
+          quizzes and flashcards in one simple
+          learning space.
+        </p>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="What do you want to learn?"
+            aria-label="Search Aquivora"
+          >
+
+          <button id="searchButton">
+            Search
+          </button>
+
         </div>
-        <h2>Progress overview</h2>
-        <div class="stats">
-          <div><b>◷</b><span>Study time<strong id="minutes">0 min</strong></span></div>
-          <div><b>✓</b><span>Quiz score<strong id="score">0%</strong></span></div>
-          <div><b>🔥</b><span>Study streak<strong id="streak">0 days</strong></span></div>
-          <div><b>◇</b><span>Topics learned<strong id="topics">0</strong></span></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <section id="subjects" class="section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            EXPLORE
+          </p>
+
+          <h2>
+            Popular Subjects
+          </h2>
+
+          <p>
+            Choose a subject and start learning.
+          </p>
+
         </div>
-        <div class="two"><div class="panel"><div class="panelhead"><h3>Continue learning</h3><button class="link" data-page="subjects">View all</button></div><div id="continue"></div></div>
-        <div class="panel quote"><span>“</span><blockquote>Success is the sum of small efforts, repeated day in and day out.</blockquote><small>— Robert Collier</small></div></div>
-      </section>
 
-      <section class="page" id="subjects"><div class="heading"><div><label>LEARNING LIBRARY</label><h2>Subjects</h2><p>Choose a subject and keep learning.</p></div><button id="addSubject" class="primary">＋ Add subject</button></div><div id="subjectGrid" class="grid"></div></section>
 
-      <section class="page" id="notes"><div class="heading"><div><label>YOUR KNOWLEDGE BASE</label><h2>Notes</h2><p>Keep important ideas close.</p></div><button id="addNote" class="primary">＋ New note</button></div><div id="notesGrid" class="grid"></div></section>
+        <div class="subject-grid">
 
-      <section class="page" id="quiz"><div class="heading"><div><label>PRACTICE ARENA</label><h2>Quick Quiz</h2><p>Test yourself with sample questions.</p></div></div><div id="quizBox" class="quiz"></div></section>
 
-      <section class="page" id="flashcards"><div class="heading"><div><label>ACTIVE RECALL</label><h2>Flashcards</h2><p>Tap a card to reveal the answer.</p></div></div>
-        <div class="flashwrap"><div id="flashcard" class="flashcard"><div class="face front"><label>QUESTION</label><b id="fq"></b><small>Tap to reveal</small></div><div class="face back"><label>ANSWER</label><b id="fa"></b><small>Tap to flip back</small></div></div><div class="controls"><button class="secondary" id="prev">← Previous</button><span id="count">1 / 5</span><button class="primary" id="next">Next →</button></div></div>
-      </section>
+          <!-- Mathematics -->
 
-      <section class="page" id="timer"><div class="heading"><div><label>DEEP WORK</label><h2>Study Timer</h2><p>Focus, then take a break.</p></div></div>
-        <div class="timer"><div class="modes"><button class="mode active" data-min="25">Pomodoro</button><button class="mode" data-min="50">Deep focus</button><button class="mode" data-min="5">Break</button></div><div class="ring"><b id="time">25:00</b><small>FOCUS</small></div><button id="reset" class="secondary">Reset</button><button id="start" class="primary">Start focus</button><p>Completed sessions are saved to your study time.</p></div>
-      </section>
+          <a href="#" class="subject-card">
 
-      <section class="page" id="settings"><div class="heading"><div><label>PERSONALIZE</label><h2>Settings</h2></div></div>
-        <div class="settings"><div><b>Dark mode</b><small>Use a darker interface for night study.</small><button id="darkToggle" class="toggle"></button></div>
-        <div><b>Study reminders</b><small>Demo setting for future notification support.</small><button id="reminder" class="toggle"></button></div>
-        <div><b>Reset progress</b><small>Remove locally saved Aquivora data.</small><button id="resetData" class="danger">Reset data</button></div></div>
-      </section>
-    </div>
+            <div class="subject-icon">
+              📐
+            </div>
+
+            <h3>
+              Mathematics
+            </h3>
+
+            <p>
+              Algebra, geometry, trigonometry
+              and more.
+            </p>
+
+          </a>
+
+
+          <!-- Physics -->
+
+          <a href="#" class="subject-card">
+
+            <div class="subject-icon">
+              ⚛️
+            </div>
+
+            <h3>
+              Physics
+            </h3>
+
+            <p>
+              Motion, force, energy,
+              electricity and more.
+            </p>
+
+          </a>
+
+
+          <!-- Chemistry -->
+
+          <a href="#" class="subject-card">
+
+            <div class="subject-icon">
+              🧪
+            </div>
+
+            <h3>
+              Chemistry
+            </h3>
+
+            <p>
+              Atoms, reactions, matter
+              and chemical concepts.
+            </p>
+
+          </a>
+
+
+          <!-- Biology -->
+
+          <a href="#" class="subject-card">
+
+            <div class="subject-icon">
+              🧬
+            </div>
+
+            <h3>
+              Biology
+            </h3>
+
+            <p>
+              Cells, genetics, ecosystems
+              and the human body.
+            </p>
+
+          </a>
+
+
+          <!-- Computer Science -->
+
+          <a href="#" class="subject-card">
+
+            <div class="subject-icon">
+              💻
+            </div>
+
+            <h3>
+              Computer Science
+            </h3>
+
+            <p>
+              Programming, algorithms,
+              web development and AI.
+            </p>
+
+          </a>
+
+
+          <!-- English -->
+
+          <a href="#" class="subject-card">
+
+            <div class="subject-icon">
+              Aa
+            </div>
+
+            <h3>
+              English
+            </h3>
+
+            <p>
+              Grammar, vocabulary,
+              writing and literature.
+            </p>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= LESSONS ================= -->
+
+    <section id="lessons" class="section section-alt">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            START LEARNING
+          </p>
+
+          <h2>
+            Featured Lessons
+          </h2>
+
+          <p>
+            Simple explanations designed
+            to help you understand concepts.
+          </p>
+
+        </div>
+
+
+        <div class="lesson-grid">
+
+
+          <article class="lesson-card">
+
+            <span class="lesson-subject">
+              Mathematics
+            </span>
+
+            <h3>
+              Algebra Basics
+            </h3>
+
+            <p>
+              Learn variables, expressions
+              and simple equations.
+            </p>
+
+            <button class="lesson-button">
+              Coming soon
+            </button>
+
+          </article>
+
+
+          <article class="lesson-card">
+
+            <span class="lesson-subject">
+              Physics
+            </span>
+
+            <h3>
+              Newton's Laws
+            </h3>
+
+            <p>
+              Understand the fundamental
+              laws of motion.
+            </p>
+
+            <button class="lesson-button">
+              Coming soon
+            </button>
+
+          </article>
+
+
+          <article class="lesson-card">
+
+            <span class="lesson-subject">
+              Biology
+            </span>
+
+            <h3>
+              Cell Structure
+            </h3>
+
+            <p>
+              Discover the basic structure
+              and functions of cells.
+            </p>
+
+            <button class="lesson-button">
+              Coming soon
+            </button>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= STUDY TOOLS ================= -->
+
+    <section id="tools" class="section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            STUDY BETTER
+          </p>
+
+          <h2>
+            Study Tools
+          </h2>
+
+          <p>
+            Tools to help you practice
+            and stay focused.
+          </p>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              📝
+            </div>
+
+            <h3>
+              Notes
+            </h3>
+
+            <p>
+              Organize your study notes.
+            </p>
+
+          </div>
+
+
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              ❓
+            </div>
+
+            <h3>
+              Quizzes
+            </h3>
+
+            <p>
+              Test what you have learned.
+            </p>
+
+          </div>
+
+
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              🧠
+            </div>
+
+            <h3>
+              Flashcards
+            </h3>
+
+            <p>
+              Practice active recall.
+            </p>
+
+          </div>
+
+
+          <div class="tool-card">
+
+            <div class="tool-icon">
+              ⏱️
+            </div>
+
+            <h3>
+              Study Timer
+            </h3>
+
+            <p>
+              Stay focused during study sessions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
-</div>
-<div id="modalBg" class="modalbg"><div id="modal" class="modal"></div></div>
-<div id="toast" class="toast"></div>
-<script src="script.js"></script>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-brand">
+        Aquivora
+      </div>
+
+      <p>
+        Learn smarter. Go further.
+      </p>
+
+      <div class="footer-links">
+
+        <a href="#subjects">
+          Subjects
+        </a>
+
+        <a href="#lessons">
+          Lessons
+        </a>
+
+        <a href="#tools">
+          Study Tools
+        </a>
+
+      </div>
+
+      <p class="copyright">
+        © 2026 Aquivora. All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
 </body>
 </html>
